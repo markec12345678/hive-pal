@@ -23,7 +23,7 @@ A modern beekeeping management application designed for both mobile and desktop 
 - **Collaboration**: Share apiaries with other beekeepers via invite links
 - **Free Tools**: Browser-based calculators and planners (syrup calculator, brood timeline, swarm management) — no signup required
 - **Mobile-First & Offline-Ready**: Optimized for field use and installable as a PWA that keeps working without signal
-- **Multilingual**: Available in multiple languages with community translations
+- **Multilingual**: Available in multiple languages with community translations — including a complete Slovenian (`sl`) interface (all 11 translation namespaces)
 - **Data Portability**: Import and export your data — your records stay yours
 - **Open Source & Self-Hostable**: MIT-licensed and free to run on your own hardware
 - **HiveScale Integration**: Claim and monitor self-hosted HiveScale devices, including weight, temperature, battery, solar, and cellular telemetry
@@ -126,6 +126,20 @@ The application will be available at http://localhost.
 | `HIVESCALE_SERVICE_API_KEY` | Shared service key used by HivePal to call HiveScale                           |
 | `AI_ENABLED`                | Set to `true` to enable AI voice inspections and the assistant (SDK-based)     |
 | `AI_REQUEST_TIMEOUT_MS`     | Timeout for AI SDK requests (default `600000`)                                 |
+
+## Slovenian demo data (optional)
+
+To explore the app with realistic Slovenian demo data (apiary _Griblje ob Kolpi_ with hives, inspections, harvests and treatments), run the idempotent demo seed against your database:
+
+```bash
+# from apps/backend (uses DATABASE_URL from your environment)
+pnpm dlx tsx prisma/seed-demo-sl.ts
+```
+
+- Creates (or updates) a demo account: **demo@cebele.si** / `cebela123`
+- Re-running is safe — previous demo data (recognized by the demo e-mail) is removed and recreated, never duplicated
+
+> ⚠️ Do not run against a production database you care about — it adds a visible demo user and apiary.
 
 ## Development
 
